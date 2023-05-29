@@ -4,7 +4,6 @@ import com.example.sandbox.entity.Employee;
 
 import java.util.List;
 
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
 import jakarta.persistence.EntityManager;
@@ -17,7 +16,6 @@ public class EmployeeDAOJpaImpl implements EmployeeDAO {
     private EntityManager entityManager;
 
     // set up constructor injection
-    @Autowired
     public EmployeeDAOJpaImpl(EntityManager theEntityManager) {
         entityManager = theEntityManager;
     }

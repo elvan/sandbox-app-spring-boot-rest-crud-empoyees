@@ -1,7 +1,7 @@
 package com.example.sandbox.rest;
 
-import com.example.sandbox.dao.EmployeeDAO;
 import com.example.sandbox.entity.Employee;
+import com.example.sandbox.service.EmployeeService;
 
 import java.util.List;
 
@@ -13,17 +13,16 @@ import org.springframework.web.bind.annotation.RestController;
 @RequestMapping("/api")
 public class EmployeeRestController {
 
-    private EmployeeDAO employeeDAO;
+    private EmployeeService employeeService;
 
-    // quick and dirty: inject employee dao (use constructor injection)
-    public EmployeeRestController(EmployeeDAO theEmployeeDAO) {
-        employeeDAO = theEmployeeDAO;
+    public EmployeeRestController(EmployeeService theEmployeeService) {
+        employeeService = theEmployeeService;
     }
 
     // expose "/employees" and return a list of employees
     @GetMapping("/employees")
     public List<Employee> findAll() {
-        return employeeDAO.findAll();
+        return employeeService.findAll();
     }
 
 }
